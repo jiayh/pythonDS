@@ -1,0 +1,24 @@
+Time complexity
+
+Task 0:  O(1)
+    The code directly access the record by referencing position in list.
+
+Task 1: O(N), where N is the number of records read from file.
+  The code first iterates through the records to retrieve phone numbers. That is O(N). Then convert list to set by use set(). The time complexity of set creation is O(N).  Therefore, the time complexity of the code is O(N)
+
+Task2: O(N), where N is the number of records read from the CSV file.
+    The code iterates through the records and adds up the time spent by phone.  That is O(N), because accessing and updating dictionary is O(1).  Then iterates through the dictionary of phone number to total time spent on call to find the longest entry.  The size of the dictionary is, at worst, twice the size of call records.   That mounts up to O(2 * N) worst case.  So the time complexity of the code is O(N)
+
+Task3: O(NlogN), where N is the number of records read from the CSV file.
+    The code first iterates through the records from file, which is O(N).  At the same time, it checks whether the call is made from fixed lines in Bangalore.  If yes, then it checks the area code of the answering phone, and updates the number of calls with the same area code.   The time complexity of regular expression check is O(mn), where m is the length of pattern, and n is the length of string.  Both m and n is much smaller than N.  The time complexity of accessing and updating dictionary is O(1).  Thus, still O(N) so far.
+    To print out the codes sorted, sorted() is called.  It has the time complexity of O(NlogN).  The size of dictionary is, in worst case, N.
+
+The final part, the code adds up all the values of the dictionary in order to calculate the percentage. This part is O(N).
+
+Altogether, the time complexity of the code is o(NlogN)
+
+Task4 O(NlogN), where N is the number of records read from the CSV file.
+    First, the code iterates through the list of calls and texts, and put phone numbers into two different list: phone numbers that make calls and anything else.  That is O(N).
+    Then, the code removes duplication by converting lists to sets, O(N).
+     Then, the code obtain the set of telemarketers by set difference operation, O(N)
+      Finally, the set is converted to sorted list, O(NlogN), and print out.  Therefore, the time complexity of the code O(NlogN)
